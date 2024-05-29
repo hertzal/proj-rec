@@ -6,9 +6,16 @@ function RecipeCreate({ addRecipe }) {
   const [photo, setPhoto] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [preparation, setPreparation] = useState('');
+  const [error, setError] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (!name || !cuisine || !photo || !ingredients || !preparation) {
+      setError('All fields are required.');
+      return;
+    }
+
     const newRecipe = { name, cuisine, photo, ingredients, preparation };
     addRecipe(newRecipe);
     setName('');
@@ -16,6 +23,7 @@ function RecipeCreate({ addRecipe }) {
     setPhoto('');
     setIngredients('');
     setPreparation('');
+    setError('');
   };
 
   return (
@@ -61,6 +69,7 @@ function RecipeCreate({ addRecipe }) {
         />
         <button type="submit" style={{ alignSelf: "flex-start" }}>Create</button>
       </div>
+      {error && <p style={{ color: 'red', width: '100%' }}>{error}</p>}
     </form>
   );
 }
