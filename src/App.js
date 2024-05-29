@@ -19,8 +19,8 @@ function App() {
   return (
     <div className="App">
       <h1>Delicious Food Recipes</h1>
-      <RecipeCreate addRecipe={addRecipe} />
       <RecipeList recipes={recipes} deleteRecipe={deleteRecipe} />
+      <RecipeCreate addRecipe={addRecipe} />
     </div>
   );
 }

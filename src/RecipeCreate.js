@@ -19,28 +19,48 @@ function RecipeCreate({ addRecipe }) {
   };
 
   return (
-    <form name="create" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} />
+    <form name="create" onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "row", gap: "10px", width: "100%", flexWrap: "wrap" }}>
+      <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", width: "100%" }}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          style={{ flex: 1}}
+        />
+        <input
+          type="text"
+          name="cuisine"
+          placeholder="Cuisine"
+          value={cuisine}
+          onChange={(e) => setCuisine(e.target.value)}
+          style={{ flex: 1}}
+        />
+        <input
+          type="url"
+          name="photo"
+          placeholder="Photo URL"
+          value={photo}
+          onChange={(e) => setPhoto(e.target.value)}
+          style={{ flex: 1}}
+        />
+        <textarea
+          name="ingredients"
+          placeholder="Ingredients"
+          value={ingredients}
+          onChange={(e) => setIngredients(e.target.value)}
+          style={{ flex: 1}}
+        />
+        <textarea
+          name="preparation"
+          placeholder="Preparation"
+          value={preparation}
+          onChange={(e) => setPreparation(e.target.value)}
+          style={{ flex: 1}}
+        />
+        <button type="submit" style={{ alignSelf: "flex-start" }}>Create</button>
       </div>
-      <div>
-        <label htmlFor="cuisine">Cuisine:</label>
-        <input type="text" name="cuisine" value={cuisine} onChange={(e) => setCuisine(e.target.value)} />
-      </div>
-      <div>
-        <label htmlFor="photo">Photo URL:</label>
-        <input type="url" name="photo" value={photo} onChange={(e) => setPhoto(e.target.value)} />
-      </div>
-      <div>
-        <label htmlFor="ingredients">Ingredients:</label>
-        <textarea name="ingredients" value={ingredients} onChange={(e) => setIngredients(e.target.value)} />
-      </div>
-      <div>
-        <label htmlFor="preparation">Preparation:</label>
-        <textarea name="preparation" value={preparation} onChange={(e) => setPreparation(e.target.value)} />
-      </div>
-      <button type="submit">Create</button>
     </form>
   );
 }
